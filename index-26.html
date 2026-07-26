@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>5 Nights at Nasha's</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================= TITLE SCREEN ======================= -->
+  <section id="title-screen" class="screen active">
+    <div class="crt-flicker"></div>
+    <h1 class="title-glitch" data-text="5 NIGHTS AT NASHA'S">5 NIGHTS AT NASHA'S</h1>
+    <p class="subtitle">a monthsary production</p>
+    <button id="start-btn" class="menu-btn">START NIGHT</button>
+    <button id="howto-btn" class="menu-btn ghost">HOW TO SURVIVE</button>
+    <p class="footer-credit">made with love (and static) for Nasha 💛</p>
+  </section>
+
+  <!-- ======================= HOW TO PLAY ======================= -->
+  <section id="howto-screen" class="screen">
+    <div class="howto-box">
+      <h2>How To Survive</h2>
+      <ul>
+        <li>Your <b>Sanity</b> drains every second, no matter what you do.</li>
+        <li>Tap the <b>phone</b> to call Brent. He'll calm you down and refill your sanity.</li>
+        <li>Tap the <b>tablet</b> to check the cameras. It won't save you, but you might catch her looking back...</li>
+        <li>Survive until <b>5:00</b> hits <b>0:00</b>.</li>
+        <li>If Sanity hits <b>0%</b>, Nasha finds you.</li>
+      </ul>
+      <button id="howto-back-btn" class="menu-btn">GOT IT</button>
+    </div>
+  </section>
+
+  <!-- ======================= GAME SCREEN (OFFICE) ======================= -->
+  <section id="game-screen" class="screen">
+    <div class="office-view">
+      <img src="assets/rooms/office.png" class="room-bg office-bg" alt="office" />
+      <div class="crt-overlay"></div>
+      <div class="vignette"></div>
+
+      <div class="hud">
+        <div class="hud-row">Sanity: <span id="sanity-val">100</span>%</div>
+        <div class="sanity-bar"><div id="sanity-fill" class="sanity-fill"></div></div>
+        <div class="hud-row timer-row">⏱ <span id="timer-val">5:00</span></div>
+      </div>
+
+      <!-- Nasha peeking jumpscare-lite when sanity critical -->
+      <img id="office-scare" src="assets/sprites/nasha_idle.png" class="office-scare hidden" alt="" />
+
+      <!-- Buttons -->
+      <button id="tablet-btn" class="icon-btn tablet-btn" aria-label="Open Tablet">
+        <img src="assets/ui/tablet.png" alt="tablet" />
+      </button>
+      <button id="phone-btn" class="icon-btn phone-btn" aria-label="Call Brent">
+        <img src="assets/ui/phone.jpg" alt="phone" />
+      </button>
+
+      <!-- Phone call dialogue box -->
+      <div id="call-box" class="call-box hidden">
+        <p id="call-line" class="call-line"></p>
+      </div>
+    </div>
+
+    <!-- Transition video overlay -->
+    <div id="transition-overlay" class="transition-overlay hidden">
+      <img src="assets/ui/transition.webp" alt="" />
+    </div>
+
+    <!-- CCTV MAP UI -->
+    <div id="map-screen" class="map-screen hidden">
+      <div class="crt-overlay"></div>
+      <img src="assets/ui/map.png" class="map-img" alt="camera map" />
+      <button class="cam-hotspot cam-adoptme" data-room="adoptme" aria-label="Cam One - Adopt Me Room"></button>
+      <button class="cam-hotspot cam-hm" data-room="hm" aria-label="Cam II - H&M Room"></button>
+      <button class="cam-hotspot cam-krispy" data-room="krispy" aria-label="Krispy Kreme Room"></button>
+      <button class="cam-hotspot cam-smclark" data-room="smclark" aria-label="Cam 4 - SM Clark Room"></button>
+      <button id="map-back-btn" class="back-btn">
+        <img src="assets/ui/back.png" alt="back" />
+      </button>
+    </div>
+
+    <!-- CCTV FEED VIEW -->
+    <div id="feed-screen" class="feed-screen hidden">
+      <img id="feed-bg" src="" class="room-bg" alt="camera feed" />
+      <div class="crt-overlay"></div>
+      <div class="scanlines"></div>
+      <div class="feed-noise"></div>
+      <div class="rec-tag">● REC <span id="feed-room-label"></span></div>
+      <img id="nasha-peek" src="assets/sprites/nasha_idle.png" class="nasha-peek hidden" alt="" />
+      <button id="feed-back-btn" class="back-btn">
+        <img src="assets/ui/back.png" alt="back" />
+      </button>
+    </div>
+  </section>
+
+  <!-- ======================= JUMPSCARE ======================= -->
+  <section id="jumpscare-screen" class="screen jumpscare-screen">
+    <img src="assets/sprites/nasha_jumpscare.png" id="jumpscare-img" alt="" />
+  </section>
+
+  <!-- ======================= GAME OVER ======================= -->
+  <section id="gameover-screen" class="screen">
+    <h1 class="gameover-title">SHE FOUND YOU</h1>
+    <p class="gameover-sub">Sanity reached 0%.</p>
+    <button id="retry-btn" class="menu-btn">TRY AGAIN</button>
+    <button id="menu-btn-1" class="menu-btn ghost">MAIN MENU</button>
+  </section>
+
+  <!-- ======================= VICTORY ======================= -->
+  <section id="victory-screen" class="screen">
+    <h1 class="victory-title">6 AM</h1>
+    <p class="victory-sub">You survived the night. Happy Monthsary, Nasha. 💛</p>
+    <button id="menu-btn-2" class="menu-btn">MAIN MENU</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
